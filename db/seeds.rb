@@ -6,5 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 1.upto(5) do |l|
-    Employee.create(email: "employee#{l}@test.com", password: 'password')
+    Employee.create!(email: "employee#{l}@test.com", password: 'password')
 end
+
+Kudo.create(title: 'From seeds', content: 'Something', giver: Employee.find_by(email: 'employee1@test.com'), receiver: Employee.find_by(email: 'employee3@test.com'))
