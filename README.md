@@ -9,3 +9,9 @@ bin/setup
 ```
 rails server
 ```
+
+### How to access the production and sign in
+```
+Visit page https://enigmatic-shelf-43728.herokuapp.com/ 
+You will see login page, fill email field with your email(e. g. employee1@test.com) and password field with your password.
+```
