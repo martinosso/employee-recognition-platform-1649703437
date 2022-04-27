@@ -19,7 +19,7 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
-    if current_employee and @kudo.giver_id == current_employee.id or current_admin
+    if current_employee or current_admin
       @kudo = Kudo.new(kudo_params)
       if current_employee
         @kudo.giver = current_employee
