@@ -19,7 +19,7 @@
         <td><%= kudo.giver.email %></td>
         <td><%= kudo.receiver.email %></td>
         <td><%= link_to 'Show', kudo %></td>
-        <% if current_employee.id == kudo.giver_id %>
+        <% if current_employee and current_employee.id == kudo.giver.id or admin_signed_in? %>
           <td><%= link_to 'Edit', edit_kudo_path(kudo) %></td>
           <td><%= link_to 'Destroy', kudo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -29,5 +29,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Kudo', new_kudo_path %>
+<% if current_employee or current_admin %>
+  <%= link_to 'New Kudo', new_kudo_path %>
+<% end %>
