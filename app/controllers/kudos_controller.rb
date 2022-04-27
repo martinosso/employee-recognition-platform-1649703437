@@ -19,19 +19,23 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
-    @kudo = Kudo.new(kudo_params)
-    @kudo.giver = current_employee
+    if current_employee || current_admin
+      @kudo = Kudo.new(kudo_params)
+      @kudo.giver = current_employee if current_employee
 
-    if @kudo.save
-      redirect_to kudos_path, notice: 'Kudo was successfully created.'
+      if @kudo.save
+        redirect_to kudos_path, notice: 'Kudo was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to kudos_url, notice: 'You don\'t have permission to do that!'
     end
   end
 
   # PATCH/PUT /kudos/1
   def update
-    if @kudo.giver_id == current_employee.id
+    if (current_employee && (@kudo.giver_id == current_employee.id)) || current_admin
       if @kudo.update(kudo_params)
         redirect_to @kudo, notice: 'Kudo was successfully updated.'
       else
@@ -44,7 +48,7 @@ class KudosController < ApplicationController
 
   # DELETE /kudos/1
   def destroy
-    if @kudo.giver_id == current_employee.id
+    if (current_employee && (@kudo.giver_id == current_employee.id)) || current_admin
       @kudo.destroy
       redirect_to kudos_url, notice: 'Kudo was successfully destroyed.'
     else
