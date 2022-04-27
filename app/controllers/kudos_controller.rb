@@ -19,11 +19,9 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
-    if current_employee or current_admin
+    if current_employee || current_admin
       @kudo = Kudo.new(kudo_params)
-      if current_employee
-        @kudo.giver = current_employee
-      end
+      @kudo.giver = current_employee if current_employee
 
       if @kudo.save
         redirect_to kudos_path, notice: 'Kudo was successfully created.'
@@ -37,7 +35,7 @@ class KudosController < ApplicationController
 
   # PATCH/PUT /kudos/1
   def update
-    if current_employee and @kudo.giver_id == current_employee.id or current_admin
+    if (current_employee && (@kudo.giver_id == current_employee.id)) || current_admin
       if @kudo.update(kudo_params)
         redirect_to @kudo, notice: 'Kudo was successfully updated.'
       else
@@ -50,7 +48,7 @@ class KudosController < ApplicationController
 
   # DELETE /kudos/1
   def destroy
-    if current_employee and @kudo.giver_id == current_employee.id or current_admin
+    if (current_employee && (@kudo.giver_id == current_employee.id)) || current_admin
       @kudo.destroy
       redirect_to kudos_url, notice: 'Kudo was successfully destroyed.'
     else
