@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'the kudo listing and deleting process', type: :system do
   let(:admin) { create(:admin) }
+
   before do
     sign_in admin
   end
+  
   kudo = FactoryBot.create :kudo
 
   it 'destroys kudo' do
