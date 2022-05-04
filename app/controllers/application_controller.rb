@@ -2,9 +2,9 @@
 
 class ApplicationController < ActionController::Base
 
-    def check_logged_in
-        if !current_employee and !current_admin
-            authenticate_employee!
-        end
+  def check_logged_in
+    if ( !current_employee && !current_admin )
+      authenticate_employee!
     end
+  end
 end
