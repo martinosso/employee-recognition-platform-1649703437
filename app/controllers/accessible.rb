@@ -10,7 +10,7 @@ module Accessible
     if current_admin
       flash.clear
       flash.notice = 'Signed in as admin successfully.'
-      redirect_to(dashboard_admin_page_path) and return
+      redirect_to(admins_root_path) and return
     elsif current_employee
       flash.clear
       flash.notice = 'Signed in successfully.'
