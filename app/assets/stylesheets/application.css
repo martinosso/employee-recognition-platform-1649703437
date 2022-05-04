@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+html
+{
+    background-color: antiquewhite;
+}
+body
+{
+    width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    border: 2px solid black;
+}
+table, th, td
+{
+    border: 1px solid;
+}
+table
+{
+    margin: 0 auto;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+#tablehead
+{
+    background-color: chartreuse;
+}
+#kudotitle
+{
+    height: 15px;
+}
+#kudos{
+    background-color: white;
+    text-align: center;
+}
+#newkudo
+{
+    margin: 0 auto;
+    text-align: left;
+}

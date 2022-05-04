@@ -1,8 +1,8 @@
-<h1>Kudos</h1>
-
+<div id="kudos">
 <table>
+<h1 id="kudotitle">Kudos</h1>
   <thead>
-    <tr>
+    <tr id="tablehead">
       <th>Title</th>
       <th>Content</th>
       <th>Giver</th>
@@ -27,8 +27,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <% if current_employee or current_admin %>
-  <%= link_to 'New Kudo', new_kudo_path %>
+  <p id="newkudo"><%= link_to 'New Kudo', new_kudo_path %></p>
 <% end %>
