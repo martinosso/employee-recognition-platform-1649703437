@@ -33,6 +33,9 @@
             <li><%= link_to 'Admin panel', admins_root_path %></li>
         <% end %>
       </ul>
+      <% if current_employee %>
+        <p>Available kudos: <%= current_employee.number_of_available_kudos %></p>
+      <% end %>
 
     </nav>
 
