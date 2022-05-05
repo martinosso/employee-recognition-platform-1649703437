@@ -1,4 +1,5 @@
 class KudosController < ApplicationController
+  before_action :check_logged_in
   before_action :set_kudo, only: %i[show edit update destroy]
 
   # GET /kudos

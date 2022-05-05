@@ -21,13 +21,16 @@
         <% if !employee_signed_in? && !admin_signed_in? %>
           <li><%= link_to 'Sign in', new_employee_session_path %></li>
           <li><%= link_to 'Sign up', new_employee_registration_path %></li>
-          <li><%= link_to 'Sign in as admin', admins_path %></li>
+          <li><%= link_to 'Sign in as admin', admins_sign_in_path %></li>
         <% else %>
           <% if employee_signed_in? %>
             <li><%= link_to 'Sign out', destroy_employee_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
           <% end %>
+        <% end %>
+        <% if current_admin %>
+            <li><%= link_to 'Admin panel', admins_root_path %></li>
         <% end %>
       </ul>
 

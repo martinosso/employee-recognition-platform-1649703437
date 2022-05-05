@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Recognition Platform</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <h1><%= link_to "Company", root_path %></h1>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <nav>
+    <h4>Navigation</h4>
+      <ul>
+        <li><%= link_to 'Admin panel', admins_root_path %></li>
+        <li><%= link_to 'Kudos', admins_kudos_path %></li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

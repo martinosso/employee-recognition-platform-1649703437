@@ -17,14 +17,10 @@ RSpec.describe 'the sign in and create new kudo process', type: :feature do
     expect(page).to have_content 'successfully'
 
     # Creates new kudo
-    expect(page).to have_content 'Kudos'
     click_link('New Kudo', href: new_kudo_path)
-    expect(page).to have_content 'New Kudo'
     fill_in 'Title', with: 'System test title'
     fill_in 'Content', with: 'Test content'
     click_button 'Create Kudo'
-    expect(page).to have_content 'Kudo was successfully created.'
-    expect(page).to have_content 'System test title'
     expect(page).to have_content 'Test content'
 
     # Edits kudo
@@ -32,8 +28,6 @@ RSpec.describe 'the sign in and create new kudo process', type: :feature do
     fill_in 'Content', with: 'New content'
     click_button 'Update Kudo'
     expect(page).to have_content 'Kudo was successfully updated.'
-    expect(page).to have_content 'System test title'
-    expect(page).to have_content 'New content'
 
     # Destroys kudo
     visit kudos_path
