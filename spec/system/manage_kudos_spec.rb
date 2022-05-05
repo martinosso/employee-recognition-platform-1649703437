@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the sign in and create new kudo process', type: :feature do
+RSpec.describe 'the sign in and create new kudo process', type: :system do
   before do
     Employee.create(email: 'test@test.com', password: 'password')
     Employee.create(email: 'test2@test.com', password: 'password')
