@@ -21,6 +21,8 @@ jobs:
       postgres:
         image: postgres:11.5
         ports: ["5432:5432"]
+        env:
+          POSTGRES_DB: employee_recognition_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
