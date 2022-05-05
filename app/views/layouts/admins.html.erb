@@ -18,8 +18,13 @@
     <nav>
     <h4>Navigation</h4>
       <ul>
-        <li><%= link_to 'Admin panel', admins_root_path %></li>
-        <li><%= link_to 'Kudos', admins_kudos_path %></li>
+        <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li></br>
+        <% if request.path != admins_root_path %>
+          <li><%= link_to 'Admin panel', admins_root_path %></li>
+        <% end %>
+        <% if request.path != admins_kudos_path %>
+          <li><%= link_to 'Kudos', admins_kudos_path %></li>
+        <% end %>
       </ul>
     </nav>
 
