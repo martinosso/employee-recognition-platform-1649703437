@@ -60,10 +60,7 @@ class KudosController < ApplicationController
   def can_create?
     return true if current_employee&.number_of_available_kudos&.positive? || current_admin
 
-    if current_employee&.number_of_available_kudos&.zero?
-      redirect_to kudos_url, notice: 'You don\'t have available kudos!'
-    end
-    redirect_to kudos_url, notice: 'You don\'t have permission to do that!'
+    redirect_to kudos_url, notice: 'You can\'t do that!'
     false
   end
 
