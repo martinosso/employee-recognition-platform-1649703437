@@ -20,15 +20,18 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
-    if current_employee || current_admin
+    if current_employee && current_employee.number_of_available_kudos > 0 || current_admin
+      current_employee.update(number_of_available_kudos: "#{current_employee.number_of_available_kudos - 1}" )
+      
       @kudo = Kudo.new(kudo_params)
       @kudo.giver = current_employee if current_employee
-
       if @kudo.save
         redirect_to kudos_path, notice: 'Kudo was successfully created.'
       else
         render :new
       end
+    elsif current_employee && current_employee.number_of_available_kudos == 0
+      redirect_to kudos_url, notice: 'You don\'t have available kudos!'
     else
       redirect_to kudos_url, notice: 'You don\'t have permission to do that!'
     end
