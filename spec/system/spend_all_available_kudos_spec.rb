@@ -18,7 +18,7 @@ RSpec.describe 'the spend all available kudos process' do
       if i < 10
         expect(page).to have_content 'Test content'"#{i}"
       else
-        expect(page).to have_content 'You don\'t have available kudos!'
+        expect(page).to have_content 'You can\'t do that!'
       end
     end
   end
