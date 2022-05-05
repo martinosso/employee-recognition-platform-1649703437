@@ -62,9 +62,8 @@ class KudosController < ApplicationController
 
     if current_employee&.number_of_available_kudos&.zero?
       redirect_to kudos_url, notice: 'You don\'t have available kudos!'
-    else
-      redirect_to kudos_url, notice: 'You don\'t have permission to do that!'
     end
+    redirect_to kudos_url, notice: 'You don\'t have permission to do that!'
     false
   end
 
