@@ -20,7 +20,7 @@ class KudosController < ApplicationController
 
   # POST /kudos
   def create
-    if current_employee&.number_of_available_kudos&.positive? || current_admin
+    if can_create?
       current_employee.update(number_of_available_kudos: (current_employee.number_of_available_kudos - 1))
       @kudo = Kudo.new(kudo_params)
       @kudo.giver = current_employee if current_employee
@@ -29,8 +29,6 @@ class KudosController < ApplicationController
       else
         render :new
       end
-    else
-      redirect_to kudos_url, notice: 'You can\'t do that!'
     end
   end
 
@@ -58,6 +56,17 @@ class KudosController < ApplicationController
   end
 
   private
+
+  def can_create?
+    if current_employee&.number_of_available_kudos&.positive? || current_admin
+      return true
+    elsif current_employee&.number_of_available_kudos&.zero?
+      redirect_to kudos_url, notice: 'You don\'t have available kudos!'
+    else
+      redirect_to kudos_url, notice: 'You don\'t have permission to do that!'
+    end
+    return false
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_kudo
