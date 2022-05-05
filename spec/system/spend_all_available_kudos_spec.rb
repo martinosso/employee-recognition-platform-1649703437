@@ -11,7 +11,7 @@ RSpec.describe 'the spend all available kudos process' do
   it 'running out of available kudos' do
     visit kudos_path
     (0..10).each do |i|
-      click_link('New Kudo', href: new_kudo_path)
+      click_link('New Kudo')
       fill_in 'Title', with: 'System test title'"#{i}"
       fill_in 'Content', with: 'Test content'"#{i}"
       click_button 'Create Kudo'
