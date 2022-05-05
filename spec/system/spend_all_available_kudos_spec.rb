@@ -10,12 +10,12 @@ RSpec.describe 'the spend all available kudos process' do
 
   it 'running out of available kudos' do
     visit kudos_path
-    for i in 0..10 do
+    (0..10).each do |i|
       click_link('New Kudo', href: new_kudo_path)
       fill_in 'Title', with: 'System test title'"#{i}"
       fill_in 'Content', with: 'Test content'"#{i}"
       click_button 'Create Kudo'
-      if i<10
+      if i < 10
         expect(page).to have_content 'Test content'"#{i}"
       else
         expect(page).to have_content 'You don\'t have available kudos!'
