@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the sign in process', type: :feature do
+RSpec.describe 'the sign in process', type: :system do
   before do
     Employee.create(email: 'test@test.com', password: 'password')
   end
