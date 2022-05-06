@@ -13,6 +13,8 @@ module Admins
       redirect_to admins_kudos_url, notice: 'Kudo was successfully destroyed.'
     end
 
+    private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_kudo
       @kudo = Kudo.find(params[:id])

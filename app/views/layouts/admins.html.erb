@@ -25,6 +25,9 @@
         <% if request.path != admins_kudos_path %>
           <li><%= link_to 'Kudos', admins_kudos_path %></li>
         <% end %>
+        <% if request.path != admins_employees_path %>
+          <li><%= link_to 'Employees', admins_employees_path %></li>
+        <% end %>
       </ul>
     </nav>
 

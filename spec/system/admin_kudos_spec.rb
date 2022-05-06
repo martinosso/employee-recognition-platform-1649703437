@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the kudo listing and deleting process', type: :system do
+RSpec.describe 'the kudo RD process', type: :system do
   let(:admin) { create(:admin) }
   let!(:kudo) { create(:kudo) }
 
