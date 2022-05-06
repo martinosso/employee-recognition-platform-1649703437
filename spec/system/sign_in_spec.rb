@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'the sign in process', type: :system do
+RSpec.describe '.authenticate', type: :system do
   before do
     Employee.create(email: 'test@test.com', password: 'password')
   end
 
-  it 'signs me in' do
+  it do
     visit 'employees/sign_in'
     within('#new_employee') do
       fill_in 'Email', with: 'test@test.com'
