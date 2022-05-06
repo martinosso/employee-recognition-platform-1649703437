@@ -8,7 +8,7 @@ RSpec.describe 'the RUD employees process' do
     sign_in admin
   end
 
-  it '' do
+  it do
     visit admins_employees_path
     expect(page).to have_content(employee.email)
 
