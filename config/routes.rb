@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :kudos, only: %i[index destroy]
+    resources :employees, only: %i[index update edit destroy]
     root 'pages#dashboard'
   end
 
