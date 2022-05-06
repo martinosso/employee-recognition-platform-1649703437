@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the spend all available kudos process' do
+RSpec.describe 'spend all available kudos' do
   let(:employee) { create(:employee) }
   let(:employee2) { create(:employee) }
 
@@ -8,7 +8,7 @@ RSpec.describe 'the spend all available kudos process' do
     sign_in employee
   end
 
-  it 'running out of available kudos' do
+  it 'uses all available kudos' do
     (0..10).each do |i|
       visit kudos_path
       click_link('New Kudo')
