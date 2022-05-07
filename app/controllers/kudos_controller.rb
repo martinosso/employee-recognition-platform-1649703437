@@ -22,7 +22,6 @@ class KudosController < ApplicationController
   def create
     return unless can_create?
 
-    current_employee.update(number_of_available_kudos: (current_employee.number_of_available_kudos - 1))
     @kudo = Kudo.new(kudo_params)
     @kudo.giver = current_employee if current_employee
     if @kudo.save
@@ -58,7 +57,11 @@ class KudosController < ApplicationController
   private
 
   def can_create?
-    return true if current_employee&.number_of_available_kudos&.positive? || current_admin
+    return true if current_admin 
+    if current_employee&.number_of_available_kudos&.positive?
+      current_employee.update(number_of_available_kudos: (current_employee.number_of_available_kudos - 1))
+      return true
+    end
 
     redirect_to kudos_url, notice: 'You can\'t do that!'
     false
