@@ -4,12 +4,8 @@ Rails.application.routes.draw do
   resources :kudos
   root to: "kudos#index"
 
-  devise_for :admins, path: 'admins', controllers: { sessions: 'admins/sessions' }, skip: [:registrations]
-  devise_for :employees, path: 'employees', controllers: { sessions: 'employees/sessions' }
-  
-  devise_scope :admin do
-    get "/admins/sign_in" => "admins/sessions#new" # custom path to login/sign_in
-  end
+  devise_for :admins, path: 'admins', controllers: { sessions: 'admins/sessions' }
+  devise_for :employees, path: 'employees'
 
   namespace :admins do
     resources :kudos, only: %i[index destroy]
