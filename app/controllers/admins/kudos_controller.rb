@@ -1,11 +1,13 @@
 module Admins
   class KudosController < AdminController
-    before_action :set_kudo, only: %i[destroy]
+    before_action :set_kudo, only: %i[show destroy]
 
     # GET /admins/kudos
     def index
       @kudos = Kudo.all
     end
+
+    def show; end
 
     # DELETE /admins/kudos/1
     def destroy
