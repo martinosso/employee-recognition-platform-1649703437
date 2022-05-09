@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   devise_for :employees, path: 'employees'
 
   namespace :admins do
-    resources :kudos, only: %i[index destroy]
-    resources :employees, only: %i[index update edit destroy]
+    resources :kudos, only: %i[index show destroy]
+    resources :employees, only: %i[index show update edit destroy]
     root to: 'pages#dashboard', as: :root
   end
 
