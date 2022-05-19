@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'company values CRUD actions process', type: :system do
   let(:admin) { create(:admin) }
   let!(:companyvalue) { create(:company_value) }
+
   before do
     sign_in admin
     visit admins_company_values_path

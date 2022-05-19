@@ -57,7 +57,8 @@ class KudosController < ApplicationController
   private
 
   def can_create?
-    return true if current_admin 
+    return true if current_admin
+
     if current_employee&.number_of_available_kudos&.positive?
       current_employee.update(number_of_available_kudos: (current_employee.number_of_available_kudos - 1))
       return true

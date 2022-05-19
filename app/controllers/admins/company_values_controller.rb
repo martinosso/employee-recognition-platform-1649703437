@@ -19,7 +19,6 @@ module Admins
       redirect_to admins_company_values_path, notice: 'Company value successfully destroyed!'
     end
 
-
     def update
       if @companyvalue.update(companyvalue_params)
         redirect_to admins_company_values_path, notice: 'Company value successfully updated!'
@@ -38,14 +37,14 @@ module Admins
       end
     end
 
-
     private
-      def set_companyvalue
-        @companyvalue = CompanyValue.find(params[:id])
-      end
 
-      def companyvalue_params
-        params.require(:company_value).permit(:title)
-      end
+    def set_companyvalue
+      @companyvalue = CompanyValue.find(params[:id])
+    end
+
+    def companyvalue_params
+      params.require(:company_value).permit(:title)
+    end
   end
 end
