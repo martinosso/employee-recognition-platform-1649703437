@@ -19,7 +19,7 @@ module Admins
       if @employee.update(employee_params)
         redirect_to admins_employees_path, notice: 'Employee successfully updated.'
       else
-        render :edit, notice: 'test'
+        render :edit
       end
     end
 
