@@ -12,3 +12,8 @@ end
 Kudo.create(title: 'From seeds', content: 'Something', giver: Employee.find_by(email: 'employee1@test.com'), receiver: Employee.find_by(email: 'employee3@test.com'))
 
 Admin.create(email: "admin@test.com", password: 'password')
+
+companyvalues = ['Honesty', 'Ownership', 'Accountability', 'Passion']
+companyvalues.each do |t|
+  CompanyValue.create(title: t)
+end
