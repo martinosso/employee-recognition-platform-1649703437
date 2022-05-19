@@ -12,6 +12,6 @@ rails server
 
 ### How to access the production and sign in
 ```
-Visit page https://enigmatic-meadow-29850.herokuapp.com/
+Visit page https://salty-springs-11841.herokuapp.com/
 You will see login page, fill email field with your email(e. g. employee1@test.com) and password field with your password.
 ```
