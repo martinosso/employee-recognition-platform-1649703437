@@ -10,17 +10,16 @@
     </thead>
 
     <tbody>
-      <% @companyvalues.each do |companyvalue| %>
+      <% @company_values.each do |company_value| %>
         <tr>
-          <td><%= companyvalue.id %></td>
-          <td><%= companyvalue.title %></td>
-          <td><%= link_to 'Show',  admins_company_value_path(companyvalue) %></td>
-          <td><%= link_to 'Edit',  edit_admins_company_value_path(companyvalue) %></td>
-          <td><%= link_to 'Destroy', [:admins, companyvalue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= company_value.id %></td>
+          <td><%= company_value.title %></td>
+          <td><%= link_to 'Show',  admins_company_value_path(company_value) %></td>
+          <td><%= link_to 'Edit',  edit_admins_company_value_path(company_value) %></td>
+          <td><%= link_to 'Destroy', [:admins, company_value], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <%= link_to 'New Company Value', new_admins_company_value_path %>
-
 </div>

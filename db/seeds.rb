@@ -13,7 +13,7 @@ Kudo.create(title: 'From seeds', content: 'Something', giver: Employee.find_by(e
 
 Admin.create(email: "admin@test.com", password: 'password')
 
-companyvalues = ['Honesty', 'Ownership', 'Accountability', 'Passion']
-companyvalues.each do |t|
+company_values = ['Honesty', 'Ownership', 'Accountability', 'Passion']
+company_values.each do |t|
   CompanyValue.create(title: t)
 end

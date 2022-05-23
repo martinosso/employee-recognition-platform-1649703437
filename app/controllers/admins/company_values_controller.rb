@@ -1,26 +1,30 @@
 module Admins
   class CompanyValuesController < AdminController
-    before_action :set_companyvalue, only: %i[destroy show edit update]
-
     def index
-      @companyvalues = CompanyValue.all
+      @company_values = CompanyValue.all
     end
 
-    def edit; end
+    def edit
+      company_value
+    end
 
-    def show; end
+    def show
+      company_value
+    end
 
     def new
-      @companyvalue = CompanyValue.new
+      @company_value = CompanyValue.new
     end
 
     def destroy
-      @companyvalue.destroy
+      company_value
+      @company_value.destroy
       redirect_to admins_company_values_path, notice: 'Company value successfully destroyed!'
     end
 
     def update
-      if @companyvalue.update(companyvalue_params)
+      company_value
+      if @company_value.update(company_value_params)
         redirect_to admins_company_values_path, notice: 'Company value successfully updated!'
       else
         render :edit
@@ -28,9 +32,9 @@ module Admins
     end
 
     def create
-      @companyvalue = CompanyValue.new(companyvalue_params)
+      @company_value = CompanyValue.new(company_value_params)
 
-      if @companyvalue.save
+      if @company_value.save
         redirect_to admins_company_values_path, notice: 'Company value successfully created!'
       else
         render :new
@@ -39,11 +43,11 @@ module Admins
 
     private
 
-    def set_companyvalue
-      @companyvalue = CompanyValue.find(params[:id])
+    def company_value
+      @company_value = CompanyValue.find(params[:id])
     end
 
-    def companyvalue_params
+    def company_value_params
       params.require(:company_value).permit(:title)
     end
   end
