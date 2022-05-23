@@ -15,6 +15,7 @@ RSpec.describe 'manage kudo process', type: :system do
     fill_in 'Title', with: 'Test title'
     fill_in 'Content', with: 'Test content'
     click_button 'Create Kudo'
+    expect(page).to have_no_content 'Company value must exist'
     expect(page).to have_content 'Test content'
   end
 
