@@ -1,29 +1,31 @@
 require 'rails_helper'
 
-RSpec.describe 'create new kudo process', type: :system do
+RSpec.describe 'manage kudo process', type: :system do
+  let(:employee) { create(:employee) }
+  let!(:employee2) { create(:employee) }
+  let!(:kudo) { create(:kudo, giver: employee) }
+
   before do
-    employee = Employee.create(email: 'test@test.com', password: 'password')
-    Employee.create(email: 'test2@test.com', password: 'password')
     sign_in employee
+    visit kudos_path
   end
 
-  it 'manages kudo' do
-    visit kudos_path
-    # Creates new kudo
+  it 'creates new kudo' do
     click_link('New Kudo')
-    fill_in 'Title', with: 'System test title'
+    fill_in 'Title', with: 'Test title'
     fill_in 'Content', with: 'Test content'
     click_button 'Create Kudo'
     expect(page).to have_content 'Test content'
+  end
 
-    # Edits kudo
+  it 'edits kudo' do
     click_link('Edit')
     fill_in 'Content', with: 'New content'
     click_button 'Update Kudo'
-    expect(page).to have_content 'Kudo was successfully updated.'
+    expect(page).to have_content 'New content'
+  end
 
-    # Destroys kudo
-    visit kudos_path
+  it 'destroys kudo' do
     click_link('Destroy')
     expect(page).to have_content 'Kudo was successfully destroyed.'
   end
