@@ -28,6 +28,9 @@
         <% if request.path != admins_employees_path %>
           <li><%= link_to 'Employees', admins_employees_path %></li>
         <% end %>
+        <% if request.path != admins_company_values_path %>
+          <li><%= link_to 'Company Values', admins_company_values_path %></li>
+        <% end %>
       </ul>
     </nav>
 

@@ -1,10 +1,12 @@
 module Admins
   class EmployeesController < AdminController
-    before_action :set_employee, only: %i[destroy edit update]
+    before_action :set_employee, only: %i[show destroy edit update]
 
     def index
       @employees = Employee.all
     end
+
+    def show; end
 
     def edit; end
 
@@ -17,7 +19,7 @@ module Admins
       if @employee.update(employee_params)
         redirect_to admins_employees_path, notice: 'Employee successfully updated.'
       else
-        render :edit, notice: 'test'
+        render :edit
       end
     end
 

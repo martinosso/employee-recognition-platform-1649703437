@@ -1,0 +1,25 @@
+<div id="table">
+  <table>
+    <h1 id="tabletitle">Company Values</h1>
+    <thead>
+      <tr id="tablehead">
+        <th>ID</th>
+        <th>Company Value</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @company_values.each do |company_value| %>
+        <tr>
+          <td><%= company_value.id %></td>
+          <td><%= company_value.title %></td>
+          <td><%= link_to 'Show',  admins_company_value_path(company_value) %></td>
+          <td><%= link_to 'Edit',  edit_admins_company_value_path(company_value) %></td>
+          <td><%= link_to 'Destroy', [:admins, company_value], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Company Value', new_admins_company_value_path %>
+</div>

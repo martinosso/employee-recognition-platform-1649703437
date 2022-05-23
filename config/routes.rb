@@ -4,18 +4,13 @@ Rails.application.routes.draw do
   resources :kudos
   root to: "kudos#index"
 
-  devise_for :admins, path: 'admins', controllers: { sessions: 'admins/sessions' }, skip: [:registrations]
-  devise_for :employees, path: 'employees', controllers: { sessions: 'employees/sessions' }
-  
-  devise_scope :admin do
-    get "/admins/sign_in" => "admins/sessions#new" # custom path to login/sign_in
-  end
+  devise_for :admins, path: 'admins'
+  devise_for :employees, path: 'employees'
 
   namespace :admins do
-    resources :kudos, only: %i[index destroy]
-    resources :employees, only: %i[index update edit destroy]
-    root 'pages#dashboard'
+    resources :kudos, only: %i[index show destroy]
+    resources :employees, only: %i[index show update edit destroy]
+    resources :company_values
+    root to: 'pages#dashboard', as: :root
   end
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
