@@ -4,5 +4,4 @@ class Kudo < ApplicationRecord
   belongs_to :company_value, class_name: 'CompanyValue'
 
   validates :title, :content, presence: true
-  validates :company_value, presence: true
 end
