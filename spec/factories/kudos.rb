@@ -4,6 +4,6 @@ FactoryBot.define do
     content { 'fcontent' }
     giver { create(:employee) }
     receiver { create(:employee) }
-    company_value { create(:company_value) }
+    company_value
   end
 end
