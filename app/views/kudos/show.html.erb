@@ -19,6 +19,11 @@
   <strong>Receiver:</strong>
   <%= @kudo.receiver.email %>
 </p>
+
+<p>
+  <strong>Company value:</strong>
+  <%= @kudo.company_value.title %>
+</p>
 <% if current_employee and @kudo.giver_id == current_employee.id or current_admin %>
   <%= link_to 'Edit', edit_kudo_path(@kudo) %> |
 <% end %>

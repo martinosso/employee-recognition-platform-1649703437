@@ -9,11 +9,11 @@
     Employee.create!(email: "employee#{l}@test.com", password: 'password')
 end
 
-Kudo.create(title: 'From seeds', content: 'Something', giver: Employee.find_by(email: 'employee1@test.com'), receiver: Employee.find_by(email: 'employee3@test.com'))
-
-Admin.create(email: "admin@test.com", password: 'password')
-
 company_values = ['Honesty', 'Ownership', 'Accountability', 'Passion']
 company_values.each do |t|
   CompanyValue.create(title: t)
 end
+
+Kudo.create(title: 'From seeds', content: 'Something', giver: Employee.find_by(email: 'employee1@test.com'), receiver: Employee.find_by(email: 'employee3@test.com'), company_value: ComapnyValue.first)
+
+Admin.create(email: "admin@test.com", password: 'password')
