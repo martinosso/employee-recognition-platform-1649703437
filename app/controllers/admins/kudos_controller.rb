@@ -1,6 +1,6 @@
 module Admins
   class KudosController < AdminController
-    before_action :set_kudo, only: %i[show destroy]
+    before_action :kudo, only: %i[show destroy]
 
     def index
       @kudos = Kudo.all
@@ -15,7 +15,7 @@ module Admins
 
     private
 
-    def set_kudo
+    def kudo
       @kudo = Kudo.find(params[:id])
     end
   end
