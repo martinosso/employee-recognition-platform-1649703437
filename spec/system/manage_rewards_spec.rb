@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'manage reward process', type: :system do
   let(:admin) { create(:admin) }
-  
 
   before do
     sign_in admin

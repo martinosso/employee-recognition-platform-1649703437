@@ -1,6 +1,5 @@
 module Admins
   class RewardsController < AdminController
-
     def index
       @rewards = Reward.all
     end
@@ -48,7 +47,8 @@ module Admins
     end
 
     def reward_params
-      params.require(:reward).permit(:title, :description, :price).merge(price: Money.from_amount(params.require(:reward)[:price].to_f))
+      params.require(:reward).permit(:title, :description,
+                                     :price).merge(price: Money.from_amount(params.require(:reward)[:price].to_f))
     end
   end
 end

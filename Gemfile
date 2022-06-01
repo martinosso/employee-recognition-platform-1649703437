@@ -19,10 +19,10 @@ gem 'webpacker', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'database_cleaner', git: 'https://github.com/DatabaseCleaner/database_cleaner.git'
 gem 'devise'
+gem 'money', git: 'https://github.com/RubyMoney/money.git'
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
-gem 'money', git: 'https://github.com/RubyMoney/money.git'
 
 group :development, :test do
   # Debugging tool
