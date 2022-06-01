@@ -28,6 +28,6 @@ RSpec.describe 'manage reward process', type: :system do
 
   it 'destroys reward' do
     click_link('Destroy')
-    expect(page).to have_content 'Test Reward Title'
+    expect(page).to have_no_content 'Test Reward Title'
   end
 end
