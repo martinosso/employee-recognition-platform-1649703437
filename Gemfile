@@ -22,6 +22,7 @@ gem 'devise'
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
+gem 'money', git: 'https://github.com/RubyMoney/money.git'
 
 group :development, :test do
   # Debugging tool
