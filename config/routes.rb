@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :kudos, only: %i[index show destroy]
     resources :employees, only: %i[index show update edit destroy]
     resources :company_values
+    resources :rewards
     root to: 'pages#dashboard', as: :root
   end
 end

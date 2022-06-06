@@ -17,3 +17,5 @@ end
 Kudo.create(title: 'From seeds', content: 'Something', giver: Employee.find_by(email: 'employee1@test.com'), receiver: Employee.find_by(email: 'employee3@test.com'), company_value: ComapnyValue.first)
 
 Admin.create(email: "admin@test.com", password: 'password')
+
+Reward.create(title: 'Test Reward', description: 'Test Reward description', price: Money.from_amount(1.05))

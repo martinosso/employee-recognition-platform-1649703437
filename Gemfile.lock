@@ -6,6 +6,13 @@ GIT
       database_cleaner-active_record (~> 2.0.0)
     database_cleaner-core (2.0.1)
 
+GIT
+  remote: https://github.com/RubyMoney/money.git
+  revision: 7de3b5100fdf0cc71b04ec40d06cca3e8c5432bf
+  specs:
+    money (6.17.0)
+      i18n (>= 0.6.4, <= 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -292,6 +299,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   listen (~> 3.3)
+  money!
   net-imap
   net-pop
   net-smtp
