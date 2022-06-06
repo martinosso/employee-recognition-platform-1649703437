@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :kudos
+  resources :rewards, only: %i[index show]
   root to: "kudos#index"
 
   devise_for :admins, path: 'admins'
