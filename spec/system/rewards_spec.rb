@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'reward test' do
   let(:employee) { create(:employee) }
+  
   before do
     sign_in employee
     create(:reward)
