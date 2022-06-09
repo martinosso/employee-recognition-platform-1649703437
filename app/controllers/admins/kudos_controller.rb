@@ -3,7 +3,7 @@ module Admins
     before_action :kudo, only: %i[show destroy]
 
     def index
-      @kudos = Kudo.all
+      @kudos = Kudo.includes(:giver, :receiver, :company_value).all
     end
 
     def show; end
