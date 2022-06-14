@@ -36,6 +36,7 @@
       </ul>
       <% if current_employee %>
         <p>Available kudos: <%= current_employee.number_of_available_kudos %></p>
+        <p>Earned points: <%= current_employee.earned_points.cents %> (<%= current_employee.earned_points.amount %>$)</p>
       <% end %>
 
     </nav>
