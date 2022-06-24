@@ -6,6 +6,7 @@ class Employee < ApplicationRecord
   has_many :received_kudos, class_name: 'Kudo', foreign_key: 'receiver_id', inverse_of: 'receiver', dependent: :destroy
   composed_of :earned_points, class_name: 'Money', mapping: %w[earned_points cents],
                               converter: proc { |value| Money.new(value) }
+  has_many :orders, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
