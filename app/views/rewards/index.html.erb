@@ -5,7 +5,7 @@
     <tr id="tablehead">
       <th>Title</th>
       <th>Price</th>
-      <th colspan="1"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -13,8 +13,12 @@
     <% @rewards.each do |reward| %>
       <tr>
         <td><%= reward.title %></td>
-        <td><%= reward.price %></td>
+        <td><%= reward.price %>$</td>
         <td><%= link_to 'Show', reward %></td>
+        <% if !current_admin && reward.price <= current_employee.earned_points %>
+          <td><%= link_to 'Buy now', orders_url(reward: reward) , method: :post, 
+            data: { confirm: "Are you sure?\nPrice: #{reward.price}$, New balance: #{current_employee.earned_points - reward.price}$" } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
