@@ -15,8 +15,8 @@
         <td><%= reward.title %></td>
         <td><%= reward.price %>$</td>
         <td><%= link_to 'Show', reward %></td>
-        <% if current_employee && reward.price <= current_employee.earned_points %>
-          <td><%= link_to 'Buy now', new_order_path(reward: reward), 
+        <% if !current_admin && reward.price <= current_employee.earned_points %>
+          <td><%= link_to 'Buy now', orders_url(reward: reward) , method: :post, 
             data: { confirm: "Are you sure?\nPrice: #{reward.price}$, New balance: #{current_employee.earned_points - reward.price}$" } %></td>
         <% end %>
       </tr>

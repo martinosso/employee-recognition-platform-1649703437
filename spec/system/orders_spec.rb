@@ -11,6 +11,7 @@ RSpec.describe 'orders test process' do
 
   it 'creates order' do
     click_link 'Buy now'
-    expect(page).to have_content("Earned points: #{(100 * (employee.earned_points - reward.price)).to_i}")
+    employee.reload
+    expect(page).to have_content("Earned points: #{(100 * employee.earned_points).to_i}")
   end
 end

@@ -1,11 +1,7 @@
 class OrdersController < ApplicationController
-  def new
-    reward
-    create
-  end
-
   def create
-    return unless current_employee
+    reward
+    return unless current_employee && current_employee.earned_points >= @reward.price
 
     @order = Order.new(reward: @reward, employee: current_employee)
     if @order.save
